@@ -1,21 +1,64 @@
 using UnityEngine;
+using TMPro;
+using System;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class DimikLafe : MonoBehaviour
+public class DimikLife : MonoBehaviour
 {
-  public GameObject DimikObject;
+  static public DimikLife LocalPlayer
+  {
+    get;
+    private set;
+  }
+
+  public GameObject Player;
   public float DimikSpeedMin = 1f;
   public float DimikSpeedMax = 4f;
   public float DimikRazgon = 2f;
   public Rigidbody2D RB;
+  public float HP_Player = 100;
+  public TMP_Text Text_HP_Player;
+  public SpriteRenderer m_SpriteRenderer;
+  public BoxCollider2D Dimik_Collider;
 
   void Start()
   {
+    LocalPlayer = this;
+  }
 
+  public void OnDamage(float damage)
+  {
+    HP_Player -= damage;
+
+    StopAllCoroutines();
+    StartCoroutine(AnimDamage());
+  }
+
+  private IEnumerator AnimDamage()
+  {
+    for (int i = 0; i < 3; i += 1)
+    {
+      Color RedDamage = new Color(1f, 0.6745283f, 0.6745283f);
+
+      m_SpriteRenderer.color = RedDamage;
+      yield return new WaitForSeconds(0.16666f);
+
+      m_SpriteRenderer.color = Color.white;
+      yield return new WaitForSeconds(0.16666f);
+    }
   }
 
   void Update()
   {
-    Vector3 move = Vector3.zero;
+    Text_HP_Player.text = "" + HP_Player;
+
+    if (HP_Player <= 0)
+    {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    Vector2 move = Vector2.zero;
     if (Input.GetKey(KeyCode.W))
       move.y += 1f;
     if (Input.GetKey(KeyCode.S))
@@ -27,7 +70,7 @@ public class DimikLafe : MonoBehaviour
 
     move.Normalize();
 
-    if (move != Vector3.zero)
+    if (move != Vector2.zero)
     {
       if (DimikSpeedMin < DimikSpeedMax)
       {
@@ -38,7 +81,7 @@ public class DimikLafe : MonoBehaviour
     else
     {
       RB.linearVelocity = move * DimikSpeedMin;
-      DimikSpeedMin = 1f;
+      DimikSpeedMin = 1.6f;
     }
 
   }
