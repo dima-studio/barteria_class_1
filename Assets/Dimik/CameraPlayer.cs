@@ -1,15 +1,10 @@
   using UnityEngine;
 
-public class CameraDimik : MonoBehaviour
+public class CameraPlayer : MonoBehaviour
 {
   Vector3 SpeedCamera;
   public Transform targetCamera;
   public float softnesCamera;
-
-  void Start()
-  {
-
-  }
 
   void Update()
   {

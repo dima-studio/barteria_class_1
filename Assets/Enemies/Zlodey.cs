@@ -29,6 +29,7 @@ public class Zlodey : MonoBehaviour
     stateUSE = State.Patrol;
   }
 
+  /*
   bool Attack_Triger_ONiOFF = false;
   bool Chace_Triger_ONiOFF = false;
 
@@ -44,6 +45,7 @@ public class Zlodey : MonoBehaviour
       Chace_Triger_ONiOFF = true;
     }
   }
+  */
 
   private void Movement_Z()
   {

@@ -13,9 +13,6 @@ public class DimikLife : MonoBehaviour
   }
 
   public GameObject Player;
-  public float DimikSpeedMin = 1f;
-  public float DimikSpeedMax = 4f;
-  public float DimikRazgon = 2f;
   public Rigidbody2D RB;
   public float HP_Player = 100;
   public TMP_Text Text_HP_Player;
@@ -57,32 +54,5 @@ public class DimikLife : MonoBehaviour
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    Vector2 move = Vector2.zero;
-    if (Input.GetKey(KeyCode.W))
-      move.y += 1f;
-    if (Input.GetKey(KeyCode.S))
-      move.y -= 1f;
-    if (Input.GetKey(KeyCode.D))
-      move.x += 1f;
-    if (Input.GetKey(KeyCode.A))
-      move.x -= 1f;
-
-    move.Normalize();
-
-    if (move != Vector2.zero)
-    {
-      if (DimikSpeedMin < DimikSpeedMax)
-      {
-        DimikSpeedMin += DimikRazgon * Time.deltaTime;
-      }
-      RB.linearVelocity = move * DimikSpeedMin;
-    }
-    else
-    {
-      RB.linearVelocity = move * DimikSpeedMin;
-      DimikSpeedMin = 1.6f;
-    }
-
   }
 }
