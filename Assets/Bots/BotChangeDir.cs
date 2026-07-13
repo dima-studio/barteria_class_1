@@ -6,11 +6,12 @@ public class BotChangeDir : MonoBehaviour
   public float ChangeDirTimeMin;
   public float ChangeDirTimeMax;
   Movement movement;
-  Vector2 dir = Vector2.zero;
+  Vector2 dir;
 
   void Start()
   {
     movement = GetComponent<Movement>();
+    dir = Vector2.zero;
   }
 
   void Update()

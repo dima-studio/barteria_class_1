@@ -63,15 +63,16 @@
     <Analyzer Include="D:\Изучение ПК\barteria_class_1\Library\PackageCache\com.unity.dt.app-ui@5d6dc8bfd8d9\Runtime\MVVM\SourceGenerators\netstandard2.0\MVVMSourceGenerators.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemies\Zlodey.cs" />
-    <Compile Include="Assets\Enemies\BotChasePlayer.cs" />
-    <Compile Include="Assets\Enemies\BotChangeDir.cs" />
+    <Compile Include="Assets\VisionCollider.cs" />
+    <Compile Include="Assets\Bots\TargetSelector.cs" />
     <Compile Include="Assets\Dimik\CameraPlayer.cs" />
+    <Compile Include="Assets\Bots\Razmnozik.cs" />
+    <Compile Include="Assets\Bots\Zlodey.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\Dimik\DimikLife.cs" />
     <Compile Include="Assets\Objects map\Map_Zadni.cs" />
-    <Compile Include="Assets\Enemies\Razmnozik.cs" />
     <Compile Include="Assets\Dimik\PlayerInput.cs" />
+    <Compile Include="Assets\Bots\BotChangeDir.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
