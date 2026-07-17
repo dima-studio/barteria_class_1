@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class TargetSelector : MonoBehaviour
 {
-  /*
   VisionCollider vision;
   private int PriorityMax;
   public Transform Target;
@@ -50,5 +49,4 @@ public class TargetSelector : MonoBehaviour
       }
     }
   }
-  */
 }

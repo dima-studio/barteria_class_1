@@ -7,6 +7,11 @@ public class VisionCollider : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D collision)
   {
+    if (collision.isTrigger)
+    {
+      return;
+    }
+
     visibleObject.Add(collision);
   }
 
