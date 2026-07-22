@@ -63,18 +63,26 @@
     <Analyzer Include="D:\Изучение ПК\barteria_class_1\Library\PackageCache\com.unity.dt.app-ui@5d6dc8bfd8d9\Runtime\MVVM\SourceGenerators\netstandard2.0\MVVMSourceGenerators.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Bots\BotChase.cs" />
-    <Compile Include="Assets\VisionCollider.cs" />
-    <Compile Include="Assets\Bots\TargetSelector.cs" />
-    <Compile Include="Assets\Dimik\CameraPlayer.cs" />
-    <Compile Include="Assets\Bots\Razmnozik.cs" />
-    <Compile Include="Assets\Bots\Zlodey.cs" />
-    <Compile Include="Assets\Movement.cs" />
-    <Compile Include="Assets\Dimik\DimikLife.cs" />
+    <Compile Include="Assets\LivingObjects\Player\CameraPlayer.cs" />
+    <Compile Include="Assets\LivingObjects\Player\PlayerInput.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\VisionCollider.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\BotChangeDir.cs" />
+    <Compile Include="Assets\LivingObjects\Mov\AccelerationMov.cs" />
+    <Compile Include="Assets\Damage\PlayerDamage.cs" />
+    <Compile Include="Assets\Lesson1\LsArmorEntity.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\Zlodey.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\AttackZone.cs" />
     <Compile Include="Assets\Objects map\Map_Zadni.cs" />
-    <Compile Include="Assets\Bots\AttackZone.cs" />
-    <Compile Include="Assets\Dimik\PlayerInput.cs" />
-    <Compile Include="Assets\Bots\BotChangeDir.cs" />
+    <Compile Include="Assets\Damage\TakingDamage.cs" />
+    <Compile Include="Assets\Lesson1\LsPlayer.cs" />
+    <Compile Include="Assets\Lesson1\LsEntity.cs" />
+    <Compile Include="Assets\Lesson1\LsBox.cs" />
+    <Compile Include="Assets\LivingObjects\Player\Player_I.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\BotChase.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\Razmnozik.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\TargetSelector.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\ZlodeyRed\Brain_Zlodey.cs" />
+    <Compile Include="Assets\LivingObjects\Mov\Movement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -32,8 +32,8 @@ MonoBehaviour:
           rid: 5625663533853442313
         BlackboardGroupReferences: []
         Root:
-          rid: 5625663552856785031
-        m_VersionTimestamp: 639192087354062362
+          rid: 5625663736207900760
+        m_VersionTimestamp: 639199050525506113
     - rid: 5625663533853442313
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -44,8 +44,8 @@ MonoBehaviour:
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 5625663552856785032
-    - rid: 5625663552856785031
+        - rid: 5625663736207900761
+    - rid: 5625663736207900760
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -59,7 +59,7 @@ MonoBehaviour:
           rid: -2
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
-    - rid: 5625663552856785032
+    - rid: 5625663736207900761
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Description: 
   m_Nodes:
   - rid: 5625663533853442317
-  m_VersionTimestamp: 639192087354062362
+  m_VersionTimestamp: 639199050525506113
   m_SerializedVersion: 3
   m_DebugInfo: {fileID: -2169155280966697164}
   m_RuntimeGraph: {fileID: -2943728169373112207}
@@ -134,7 +134,7 @@ MonoBehaviour:
     - rid: 5625663533853442317
       type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: 4.800002, y: 0}
+        Position: {x: 9.800003, y: 41}
         ID:
           m_Value0: 12858278918375327484
           m_Value1: 8963154140798876350

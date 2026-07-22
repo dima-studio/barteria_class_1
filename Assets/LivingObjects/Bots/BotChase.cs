@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BotChase : MonoBehaviour
 {
-  private TargetSelector targetSelector;
+  public TargetSelector targetSelector;
   private Movement movement;
-  public Vector2 dir;
+  private Vector2 dir;
 
   void Start()
   {
@@ -12,13 +12,23 @@ public class BotChase : MonoBehaviour
     movement = GetComponent<Movement>();
   }
 
+  public void BotChaseActively()
+  {
+    dir = targetSelector.Target.position - transform.position;
+    dir.Normalize();
+    movement.Movement_ADD(dir);
+  }
+
   void Update()
   {
+    /*
     if (targetSelector.Target != null)
     {
       dir = targetSelector.Target.position - transform.position;
       dir.Normalize();
       movement.Movement_ADD(dir);
+
     }
+    */
   }
 }

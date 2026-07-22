@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-  private Rigidbody2D I_rb;
-  public float ChangeSpeed;
-  public float StartSpeed;
-
-  public float Acceleration;
-  Vector2 dir_result;
-  public float MaxSpeed;
+  protected Rigidbody2D I_rb;
+  public float Speed;
 
   void Start()
-  {
-    I_rb = GetComponent<Rigidbody2D>();
-    StartSpeed = ChangeSpeed;
+  { 
+    OnStart();
   }
 
-  public void Movement_ADD(Vector2 dir)
+  protected virtual void OnStart()
   {
-    I_rb.linearVelocity = ChangeSpeed * dir;
-    dir_result = dir;
+    I_rb = GetComponent<Rigidbody2D>();
+  }
+
+
+  public virtual void Movement_ADD(Vector2 dir)
+  {
+    I_rb.linearVelocity = Speed * dir;
   }
 
   void Update()
   {
+    /*
     if (Acceleration > 0f && dir_result != Vector2.zero)
     {
       ChangeSpeed += Acceleration * Time.deltaTime;
@@ -36,5 +36,6 @@ public class Movement : MonoBehaviour
     {
       ChangeSpeed = StartSpeed;
     }
+    */
   }
 }

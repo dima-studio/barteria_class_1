@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 05510589566f296459409864e66356f2
+guid: 3cc378678eea76946993dc4f67584649
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5421184413426151871
-    second: Dimik5_0
+      213: 381719607370836546
+    second: Dimik4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dimik5_0
+      name: Dimik4_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 19
-        height: 17
+        y: 1
+        width: 20
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb17628508aeb3b40800000000000000
-      internalID: 5421184413426151871
+      spriteID: 24ae321e5f32c4500800000000000000
+      internalID: 381719607370836546
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e6636848cdb0e7a4ca0cc56db1087a9f
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dimik5_0: 5421184413426151871
+      Dimik4_0: 381719607370836546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

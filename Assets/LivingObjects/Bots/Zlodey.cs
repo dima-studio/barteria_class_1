@@ -107,7 +107,7 @@ public class Zlodey : MonoBehaviour
 
       if (Attack_cooldown <= 0)
       {
-        DimikLife.LocalPlayer.OnDamage(25);
+        //DimikLife.LocalPlayer.OnDamage(25);
         Attack_cooldown = 1.5f;
       }
 

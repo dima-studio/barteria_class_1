@@ -145,7 +145,7 @@ public class Razmnozik : MonoBehaviour
       Movement_R();
       if (Attack_cooldown <= 0)
       {
-        DimikLife.LocalPlayer.OnDamage(15);
+        //DimikLife.LocalPlayer.OnDamage(15);
         Attack_cooldown = 1f;
       }
     }

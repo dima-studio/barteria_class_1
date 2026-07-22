@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Razmnoziks
+  - Walls
   layers:
   - Default
   - TransparentFX
