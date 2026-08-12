@@ -66,22 +66,25 @@
     <Compile Include="Assets\LivingObjects\Player\CameraPlayer.cs" />
     <Compile Include="Assets\LivingObjects\Player\PlayerInput.cs" />
     <Compile Include="Assets\LivingObjects\Bots\VisionCollider.cs" />
+    <Compile Include="Assets\Archive\LsPlayer.cs" />
+    <Compile Include="Assets\Archive\LsArmorEntity.cs" />
     <Compile Include="Assets\LivingObjects\Bots\BotChangeDir.cs" />
     <Compile Include="Assets\LivingObjects\Mov\AccelerationMov.cs" />
+    <Compile Include="Assets\Archive\LsEntity.cs" />
     <Compile Include="Assets\Damage\PlayerDamage.cs" />
-    <Compile Include="Assets\Lesson1\LsArmorEntity.cs" />
-    <Compile Include="Assets\LivingObjects\Bots\Zlodey.cs" />
+    <Compile Include="Assets\Archive\Razmnozik.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\Brain\BrainZlodey.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\Bypass\ObstacleScanner.cs" />
     <Compile Include="Assets\LivingObjects\Bots\AttackZone.cs" />
     <Compile Include="Assets\Objects map\Map_Zadni.cs" />
     <Compile Include="Assets\Damage\TakingDamage.cs" />
-    <Compile Include="Assets\Lesson1\LsPlayer.cs" />
-    <Compile Include="Assets\Lesson1\LsEntity.cs" />
-    <Compile Include="Assets\Lesson1\LsBox.cs" />
+    <Compile Include="Assets\Archive\Zlodey.cs" />
     <Compile Include="Assets\LivingObjects\Player\Player_I.cs" />
     <Compile Include="Assets\LivingObjects\Bots\BotChase.cs" />
-    <Compile Include="Assets\LivingObjects\Bots\Razmnozik.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\Brain\BrainBot.cs" />
+    <Compile Include="Assets\Archive\LsBox.cs" />
     <Compile Include="Assets\LivingObjects\Bots\TargetSelector.cs" />
-    <Compile Include="Assets\LivingObjects\Bots\ZlodeyRed\Brain_Zlodey.cs" />
+    <Compile Include="Assets\LivingObjects\Bots\Bypass\ObstacleAvoidance.cs" />
     <Compile Include="Assets\LivingObjects\Mov\Movement.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1146,6 +1149,10 @@
       <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
@@ -1174,12 +1181,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PPv2URPConverters">
@@ -1248,6 +1263,10 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Editor">

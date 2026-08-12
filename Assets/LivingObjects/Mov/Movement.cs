@@ -23,19 +23,5 @@ public class Movement : MonoBehaviour
 
   void Update()
   {
-    /*
-    if (Acceleration > 0f && dir_result != Vector2.zero)
-    {
-      ChangeSpeed += Acceleration * Time.deltaTime;
-      if (ChangeSpeed > MaxSpeed)
-      {
-        ChangeSpeed = MaxSpeed;
-      }
-    }
-    else
-    {
-      ChangeSpeed = StartSpeed;
-    }
-    */
   }
 }

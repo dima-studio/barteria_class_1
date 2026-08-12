@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class BotChangeDir : MonoBehaviour
 {
-  private float timeDirection = 0f;
+  public float timeDirection = 0f;
   public float ChangeDirTimeMin;
   public float ChangeDirTimeMax;
   Movement movement;
-  Vector2 dir;
+  public Vector2 dir;
 
   void Start()
   {
@@ -14,7 +14,7 @@ public class BotChangeDir : MonoBehaviour
     dir = Vector2.zero;
   }
 
-  void Update()
+  public void BotChangeDirActively()
   {
     timeDirection = timeDirection - Time.deltaTime;
 
@@ -27,5 +27,9 @@ public class BotChangeDir : MonoBehaviour
       timeDirection = Random.Range(ChangeDirTimeMin, ChangeDirTimeMax);
     }
     movement.Movement_ADD(dir);
+  }
+
+  void Update()
+  {
   }
 }

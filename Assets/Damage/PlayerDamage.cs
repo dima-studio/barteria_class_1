@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ public class PlayerDamage : TakingDamage
 
   void Start()
   {
-
+    OnStart();
   }
 
   public override void Death()

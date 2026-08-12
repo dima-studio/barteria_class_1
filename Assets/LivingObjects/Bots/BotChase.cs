@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class BotChase : MonoBehaviour
 {
-  public TargetSelector targetSelector;
+  private TargetSelector targetSelector;
   private Movement movement;
   private Vector2 dir;
+  private ObstacleScanner obstacleScanner; //1
 
   void Start()
   {
+    obstacleScanner = GetComponent<ObstacleScanner>(); //1
     targetSelector = GetComponent<TargetSelector>();
     movement = GetComponent<Movement>();
   }
@@ -16,19 +18,11 @@ public class BotChase : MonoBehaviour
   {
     dir = targetSelector.Target.position - transform.position;
     dir.Normalize();
-    movement.Movement_ADD(dir);
+    obstacleScanner.ObstacleDetection(dir); //1
+    //movement.Movement_ADD(dir);
   }
 
   void Update()
   {
-    /*
-    if (targetSelector.Target != null)
-    {
-      dir = targetSelector.Target.position - transform.position;
-      dir.Normalize();
-      movement.Movement_ADD(dir);
-
-    }
-    */
   }
 }
