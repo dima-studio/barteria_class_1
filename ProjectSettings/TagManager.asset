@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Razmnoziks
   - Walls
+  - Zlodey
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Bots
-  - 
+  - Player
   - 
   - 
   - 
