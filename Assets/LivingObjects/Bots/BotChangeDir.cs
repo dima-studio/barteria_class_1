@@ -7,9 +7,11 @@ public class BotChangeDir : MonoBehaviour
   public float ChangeDirTimeMax;
   Movement movement;
   public Vector2 dir;
+  //private ObstacleScanner obstacleScanner;
 
   void Start()
   {
+    //obstacleScanner = GetComponent<ObstacleScanner>();
     movement = GetComponent<Movement>();
     dir = Vector2.zero;
   }
@@ -26,6 +28,7 @@ public class BotChangeDir : MonoBehaviour
       dir.Normalize();
       timeDirection = Random.Range(ChangeDirTimeMin, ChangeDirTimeMax);
     }
+    //obstacleScanner.ObstacleDetection(dir);
     movement.Movement_ADD(dir);
   }
 

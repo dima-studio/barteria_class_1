@@ -8,11 +8,12 @@ public class ObstacleScanner : MonoBehaviour
   public RaycastHit2D BeamCenter;
   public RaycastHit2D BeamRight;
   public RaycastHit2D BeamLeft;
-  public Vector2 dirRight;
-  public Vector2 dirLeft;
   public Vector2 dirCenter;
   private Collider2D MyCollider;
   ObstacleAvoidance obstacleAvoidance;
+  public float radius;
+  public Collider2D TestStartPointCenter;
+
 
   public float ToTargetBeamLength
   {
@@ -32,41 +33,36 @@ public class ObstacleScanner : MonoBehaviour
   {
     dirCenter = dir;
 
-    float radius = MyCollider.bounds.size.magnitude / 2f;
+    radius = MyCollider.bounds.size.magnitude / 2f;
     LayerMask BeamMask = LayerMask.GetMask("Walls", "Bots", "Player");
     Vector2 CenterCollider = MyCollider.bounds.center;
-    RaycastHit2D StartBeam = Physics2D.Raycast(CenterCollider + dir * radius, dir, ToTargetBeamLength);
+    RaycastHit2D CenterStartPoint = Physics2D.Raycast(CenterCollider + dir * radius, dir, ToTargetBeamLength);
+    BeamCenter = Physics2D.Raycast(CenterStartPoint.point, dir, ToTargetBeamLength, BeamMask);
 
-    BeamCenter = Physics2D.Raycast(StartBeam.point, dir, ToTargetBeamLength, BeamMask);
+    TestStartPointCenter = Physics2D.OverlapPoint(CenterStartPoint.point, BeamMask);
 
-    Quaternion Right = Quaternion.AngleAxis(50, Vector3.forward);
-    dirRight = Right * dir;
+    Vector2 RightDir = Quaternion.AngleAxis(-90, Vector3.forward) * dir;
+    Vector2 RightStartPoint = CenterStartPoint.point + RightDir.normalized * radius;
+    BeamRight = Physics2D.Raycast(RightStartPoint, dir, ToTargetBeamLength - radius * 2, BeamMask);
 
-    Vector2 rightDir = Quaternion.AngleAxis(90, Vector3.forward) * dir;
-    Vector2 rightStartPoint = StartBeam.point + rightDir.normalized * radius;
-    BeamRight = Physics2D.Raycast(rightStartPoint, dir, ToTargetBeamLength, BeamMask);
-
-    Quaternion Left = Quaternion.AngleAxis(-50, Vector3.forward);
-    dirLeft = Left * dir;
-
-    Vector2 leftDir = Quaternion.AngleAxis(-90, Vector3.forward) * dir;
-    Vector2 leftStartPoint = StartBeam.point + leftDir.normalized * radius;
-    BeamLeft = Physics2D.Raycast(leftStartPoint, dir, ToTargetBeamLength, BeamMask);
-
+    Vector2 LeftDir = Quaternion.AngleAxis(90, Vector3.forward) * dir;
+    Vector2 LeftStartPoint = CenterStartPoint.point + LeftDir.normalized * radius;
+    BeamLeft = Physics2D.Raycast(LeftStartPoint, dir, ToTargetBeamLength - radius * 2, BeamMask);
 
     obstacleAvoidance.ChooseAvoidanceDir();
 
-    if (BeamCenter.collider != null || BeamRight.collider != null || BeamLeft.collider != null)
-    {
-    Debug.DrawLine(StartBeam.point, StartBeam.point + dir * ToTargetBeamLength, Color.white);
-    Debug.DrawLine(rightStartPoint, rightStartPoint + dir * ToTargetBeamLength, Color.white);
-    Debug.DrawLine(leftStartPoint, leftStartPoint + dir * ToTargetBeamLength, Color.white);
+    Debug.DrawLine(CenterStartPoint.point, CenterStartPoint.point + dir * (ToTargetBeamLength), Color.white);
+    Debug.DrawLine(RightStartPoint, RightStartPoint + dir * (ToTargetBeamLength - radius * 2), Color.white);
+    Debug.DrawLine(LeftStartPoint, LeftStartPoint + dir * (ToTargetBeamLength - radius * 2), Color.white);
 
-    Debug.DrawLine(StartBeam.point, BeamCenter.point, Color.red);
-    Debug.DrawLine(rightStartPoint, BeamRight.point, Color.red);
-    Debug.DrawLine(leftStartPoint, BeamLeft.point, Color.red);
-    //Debug.Log(BeamCenter.collider.gameObject.layer);
-    }
+    if (BeamCenter.collider != null)
+      Debug.DrawLine(CenterStartPoint.point, BeamCenter.point, Color.red);
+
+    if (BeamRight.collider != null)
+      Debug.DrawLine(RightStartPoint, BeamRight.point, Color.red);
+    
+    if (BeamLeft.collider != null)
+      Debug.DrawLine(LeftStartPoint, BeamLeft.point, Color.red);
   }
 
   void Update()

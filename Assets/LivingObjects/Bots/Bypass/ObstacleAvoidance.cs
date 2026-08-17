@@ -6,7 +6,10 @@ public class ObstacleAvoidance : MonoBehaviour
   TargetSelector targetSelector;
   Movement movement;
   float RandomDir;
-  float m_timeToFixError = -1f;
+  float timeToFixError = -1f;
+  Vector2 dirRight;
+  Vector2 dirLeft;
+  Rigidbody2D RB;
 
   void Start()
   {
@@ -14,72 +17,93 @@ public class ObstacleAvoidance : MonoBehaviour
     targetSelector = GetComponent<TargetSelector>();
     movement = GetComponent<Movement>();
     RandomDir = Random.Range(-1, 1);
+    RB = GetComponent<Rigidbody2D>();
   }
 
   public void ChooseAvoidanceDir()
   {
+    Quaternion Right = Quaternion.AngleAxis(50, Vector3.forward);
+    dirRight = Right * Scanner.dirCenter;
+    Quaternion Left = Quaternion.AngleAxis(-50, Vector3.forward);
+    dirLeft = Left * Scanner.dirCenter;
+
     if (targetSelector.Target != null)
-      Scanner.ToTargetBeamLength = ( transform.position - targetSelector.Target.position ).magnitude ;
+      Scanner.ToTargetBeamLength = (targetSelector.Target.position - transform.position).magnitude;
     else
       Scanner.ToTargetBeamLength = Scanner.BeamLength;
 
     Vector2 moveDir = Vector2.zero;
+
     bool useRight = true;
     bool useLeft = true;
 
-    if (Scanner.BeamCenter.distance < Scanner.BeamRight.distance && Scanner.BeamCenter.collider == targetSelector.Target)
+    if (Scanner.BeamCenter.distance < Scanner.BeamRight.distance && Scanner.BeamCenter.transform == targetSelector.Target)
       useRight = false;
 
-    if (Scanner.BeamCenter.distance < Scanner.BeamLeft.distance && Scanner.BeamCenter.collider == targetSelector.Target)
+    if (Scanner.BeamCenter.distance < Scanner.BeamLeft.distance && Scanner.BeamCenter.transform == targetSelector.Target)
       useLeft = false;
 
 
-    if (Scanner.BeamCenter.transform == targetSelector.Target && Scanner.BeamRight.collider == null && Scanner.BeamLeft.collider == null)
+    if (Scanner.BeamCenter.transform == targetSelector.Target && (Scanner.BeamRight.transform == null || Scanner.BeamRight.transform == targetSelector.Target)
+        && (Scanner.BeamLeft.transform == null || Scanner.BeamLeft.transform == targetSelector.Target))
     {
       moveDir = Scanner.dirCenter;
     }
-
-    if (useRight && Scanner.BeamRight.collider != targetSelector.Target && Scanner.BeamLeft.collider == null && Scanner.BeamRight.collider != null)
+    else if (useRight && (Scanner.BeamLeft.transform == null || Scanner.BeamLeft.transform == targetSelector.Target) && Scanner.BeamRight.transform != null)
     {
-      moveDir = Scanner.dirLeft;
+      moveDir = dirRight;
+    }
+    else if (useLeft && (Scanner.BeamRight.transform == null || Scanner.BeamRight.transform == targetSelector.Target) && Scanner.BeamLeft.transform != null)
+    {
+      moveDir = dirLeft;
     }
 
-    if (useLeft && Scanner.BeamRight.collider == null && Scanner.BeamLeft.collider != targetSelector.Target && Scanner.BeamLeft.collider != null)
+    if (Scanner.TestStartPointCenter != null || (Scanner.BeamCenter.transform != targetSelector.Target && Scanner.BeamRight.transform == null && Scanner.BeamLeft.transform == null)
+      || (Scanner.BeamRight.distance < Scanner.BeamCenter.distance && Scanner.BeamLeft.distance < Scanner.BeamLeft.distance) || RB.linearVelocity.magnitude < movement.Speed * 0.2)
     {
-      moveDir = Scanner.dirRight;
-    }
-
-    if (Scanner.BeamCenter.transform != targetSelector.Target && Scanner.BeamRight.collider == null && Scanner.BeamLeft.collider == null)
-    {
-      if (RandomDir > 0)
+      if (RandomDir >= 0)
       {
-        moveDir = Scanner.dirRight;
+        moveDir = Quaternion.AngleAxis(Random.Range(-100, -101), Vector3.forward) * Scanner.dirCenter;;
       }
       else
       {
-        moveDir = Scanner.dirLeft;
+        moveDir = Quaternion.AngleAxis(Random.Range(100, 101), Vector3.forward) * Scanner.dirCenter;
       }
     }
 
-    if (m_timeToFixError > 0f || ( Scanner.BeamCenter.collider != null 
-                                && Scanner.BeamRight.collider != null 
-                                && Scanner.BeamLeft.collider  != null 
-                                && Scanner.BeamLeft.collider  != targetSelector.Target 
-                                && Scanner.BeamRight.collider != targetSelector.Target
+    if (timeToFixError > 0f || (Scanner.BeamCenter.transform != null
+                                && Scanner.BeamRight.transform != null
+                                && Scanner.BeamLeft.transform != null
+                                && Scanner.BeamLeft.transform != targetSelector.Target
+                                && Scanner.BeamRight.transform != targetSelector.Target
                                 && useRight
                                 && useLeft))
     {
-      if (m_timeToFixError < 0f)
-        m_timeToFixError = 0.6f;
+      if (timeToFixError < 0f)
+        timeToFixError = 0.4f;
 
-      moveDir = Quaternion.AngleAxis(Random.Range(-70f, -130), Vector3.forward) * Scanner.dirCenter;//(Scanner.dirCenter * new Vector2(-0.5f, -0.7f)).normalized;
-      m_timeToFixError -= Time.deltaTime;
+      if (RandomDir <= 0)
+      {
+        moveDir = Quaternion.AngleAxis(Random.Range(-80f, -120), Vector3.forward) * Scanner.dirCenter;
+        timeToFixError -= Time.deltaTime;
+
+        if (RB.linearVelocity.magnitude < movement.Speed * 0.2 && timeToFixError <= 0)
+          RandomDir = 1;
+      }
+      else
+      {
+        moveDir = Quaternion.AngleAxis(Random.Range(80f, 120), Vector3.forward) * Scanner.dirCenter;
+        timeToFixError -= Time.deltaTime;
+
+        if (RB.linearVelocity.magnitude < movement.Speed * 0.2 && timeToFixError <= 0)
+          RandomDir = -1;
+      }
     }
+    
+
 
     movement.Movement_ADD(moveDir);
-
   }
-
 
   void Update()
   {

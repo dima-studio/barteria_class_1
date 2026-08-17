@@ -21,7 +21,7 @@ public class BrainBot : MonoBehaviour
 
   protected virtual void Brain()
   { 
-    if (RB.linearVelocity.magnitude < movement.Speed * 0.2f)
+    if (RB.linearVelocity.magnitude < movement.Speed * 0.7f)
     {
       botChangeDir.timeDirection = 0;
     }
