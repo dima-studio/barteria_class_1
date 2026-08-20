@@ -9,10 +9,12 @@ public class ObstacleScanner : MonoBehaviour
   public RaycastHit2D BeamRight;
   public RaycastHit2D BeamLeft;
   public Vector2 dirCenter;
-  private Collider2D MyCollider;
+  public Collider2D MyCollider;
   ObstacleAvoidance obstacleAvoidance;
   public float radius;
   public Collider2D TestStartPointCenter;
+  public Collider2D TestStartPointRight;
+  public Collider2D TestStartPointLeft;
 
 
   public float ToTargetBeamLength
@@ -45,9 +47,13 @@ public class ObstacleScanner : MonoBehaviour
     Vector2 RightStartPoint = CenterStartPoint.point + RightDir.normalized * radius;
     BeamRight = Physics2D.Raycast(RightStartPoint, dir, ToTargetBeamLength - radius * 2, BeamMask);
 
+    TestStartPointRight = Physics2D.OverlapPoint(RightStartPoint, BeamMask);
+
     Vector2 LeftDir = Quaternion.AngleAxis(90, Vector3.forward) * dir;
     Vector2 LeftStartPoint = CenterStartPoint.point + LeftDir.normalized * radius;
     BeamLeft = Physics2D.Raycast(LeftStartPoint, dir, ToTargetBeamLength - radius * 2, BeamMask);
+
+    TestStartPointLeft = Physics2D.OverlapPoint(LeftStartPoint, BeamMask);
 
     obstacleAvoidance.ChooseAvoidanceDir();
 

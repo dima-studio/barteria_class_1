@@ -10,9 +10,15 @@ public class ObstacleAvoidance : MonoBehaviour
   Vector2 dirRight;
   Vector2 dirLeft;
   Rigidbody2D RB;
+  //VisionCollider visionCollider;
+  //float ObjectDistance;
+  Collider2D TargetCollider;
+
+  //public int m_debugId;
 
   void Start()
   {
+    //visionCollider = GetComponentInChildren<VisionCollider>();
     Scanner = GetComponent<ObstacleScanner>();
     targetSelector = GetComponent<TargetSelector>();
     movement = GetComponent<Movement>();
@@ -22,9 +28,9 @@ public class ObstacleAvoidance : MonoBehaviour
 
   public void ChooseAvoidanceDir()
   {
-    Quaternion Right = Quaternion.AngleAxis(50, Vector3.forward);
+    Quaternion Right = Quaternion.AngleAxis(-50, Vector3.forward);
     dirRight = Right * Scanner.dirCenter;
-    Quaternion Left = Quaternion.AngleAxis(-50, Vector3.forward);
+    Quaternion Left = Quaternion.AngleAxis(50, Vector3.forward);
     dirLeft = Left * Scanner.dirCenter;
 
     if (targetSelector.Target != null)
@@ -34,52 +40,83 @@ public class ObstacleAvoidance : MonoBehaviour
 
     Vector2 moveDir = Vector2.zero;
 
-    bool useRight = true;
-    bool useLeft = true;
+    //bool useRight = true;
+    //bool useLeft = true;
 
-    if (Scanner.BeamCenter.distance < Scanner.BeamRight.distance && Scanner.BeamCenter.transform == targetSelector.Target)
-      useRight = false;
+    //float DistanceMin = 100000;
 
-    if (Scanner.BeamCenter.distance < Scanner.BeamLeft.distance && Scanner.BeamCenter.transform == targetSelector.Target)
-      useLeft = false;
+    //foreach (var i in visionCollider.visibleObject)
+    //{
+    //  if (i.gameObject.layer == LayerMask.NameToLayer("Walls"))
+    //  {
+    //    ObjectDistance = i.Distance(Scanner.MyCollider).distance;
+    //    if (ObjectDistance < DistanceMin)
+    //    {
+    //      DistanceMin = ObjectDistance;
+    //    }
+    //  }
+    //}
+    
+    //if (Scanner.BeamCenter.distance < Scanner.BeamRight.distance && Scanner.BeamCenter.transform == targetSelector.Target)
+    //  useRight = false;
+
+    //if (Scanner.BeamCenter.distance < Scanner.BeamLeft.distance && Scanner.BeamCenter.transform == targetSelector.Target)
+    //  useLeft = false;
+    
+
+    //if (DistanceMin < Scanner.radius * 0.5)
+    //{
+    //  Debug.Log("Pr potopim");
+    //  if (RandomDir >= 0)
+    //  {
+    //    moveDir = Quaternion.AngleAxis(Random.Range(-80, -120), Vector3.forward) * Scanner.dirCenter;
+    //  }
+    //  else
+    //  {
+    //    moveDir = Quaternion.AngleAxis(Random.Range(80, 120), Vector3.forward) * Scanner.dirCenter;
+    //  }
+    //}
+
 
 
     if (Scanner.BeamCenter.transform == targetSelector.Target && (Scanner.BeamRight.transform == null || Scanner.BeamRight.transform == targetSelector.Target)
         && (Scanner.BeamLeft.transform == null || Scanner.BeamLeft.transform == targetSelector.Target))
     {
       moveDir = Scanner.dirCenter;
+      Debug.Log("Center");
     }
-    else if (useRight && (Scanner.BeamLeft.transform == null || Scanner.BeamLeft.transform == targetSelector.Target) && Scanner.BeamRight.transform != null)
-    {
-      moveDir = dirRight;
-    }
-    else if (useLeft && (Scanner.BeamRight.transform == null || Scanner.BeamRight.transform == targetSelector.Target) && Scanner.BeamLeft.transform != null)
+    else if ((Scanner.BeamLeft.transform == null || Scanner.BeamLeft.transform == targetSelector.Target) && (Scanner.BeamRight.transform != null || Scanner.TestStartPointRight != null))
     {
       moveDir = dirLeft;
+      Debug.Log("Left");
     }
-
-    if (Scanner.TestStartPointCenter != null || (Scanner.BeamCenter.transform != targetSelector.Target && Scanner.BeamRight.transform == null && Scanner.BeamLeft.transform == null)
-      || (Scanner.BeamRight.distance < Scanner.BeamCenter.distance && Scanner.BeamLeft.distance < Scanner.BeamLeft.distance) || RB.linearVelocity.magnitude < movement.Speed * 0.2)
+    else if ((Scanner.BeamRight.transform == null || Scanner.BeamRight.transform == targetSelector.Target) && (Scanner.BeamLeft.transform != null || Scanner.TestStartPointLeft != null))
     {
+      moveDir = dirRight;
+      Debug.Log("Right");
+    }
+    else if (Scanner.TestStartPointCenter != null || (Scanner.BeamCenter.transform != targetSelector.Target && Scanner.BeamRight.transform == null && Scanner.BeamLeft.transform == null))
+    {
+      Debug.Log("A");
       if (RandomDir >= 0)
       {
-        moveDir = Quaternion.AngleAxis(Random.Range(-100, -101), Vector3.forward) * Scanner.dirCenter;;
+        moveDir = Quaternion.AngleAxis(Random.Range(-80, -120), Vector3.forward) * Scanner.dirCenter;
       }
       else
       {
-        moveDir = Quaternion.AngleAxis(Random.Range(100, 101), Vector3.forward) * Scanner.dirCenter;
+        moveDir = Quaternion.AngleAxis(Random.Range(80, 120), Vector3.forward) * Scanner.dirCenter;
       }
     }
 
-    if (timeToFixError > 0f || (Scanner.BeamCenter.transform != null
+
+    if (timeToFixError < 0f && (Scanner.BeamCenter.transform != null
                                 && Scanner.BeamRight.transform != null
                                 && Scanner.BeamLeft.transform != null
                                 && Scanner.BeamLeft.transform != targetSelector.Target
-                                && Scanner.BeamRight.transform != targetSelector.Target
-                                && useRight
-                                && useLeft))
+                                && Scanner.BeamRight.transform != targetSelector.Target))
     {
-      if (timeToFixError < 0f)
+      Debug.Log("B");
+      if (timeToFixError > 0f)
         timeToFixError = 0.4f;
 
       if (RandomDir <= 0)
@@ -99,9 +136,6 @@ public class ObstacleAvoidance : MonoBehaviour
           RandomDir = -1;
       }
     }
-    
-
-
     movement.Movement_ADD(moveDir);
   }
 

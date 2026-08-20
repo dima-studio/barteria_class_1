@@ -8,6 +8,7 @@ public class TargetSelector : MonoBehaviour
   public Transform Target;
   private Vector2 Distance;
   private float DistanceMin;
+  public Collider2D MyCollider;
 
   [System.Serializable]
   public struct PriorityEntry
@@ -40,11 +41,13 @@ public class TargetSelector : MonoBehaviour
           DistanceMin = Distance.magnitude;
           Target = i.transform;
           PriorityMax = j.Priority;
+
         }
         else if (i.CompareTag(j.Tag) && j.Priority == PriorityMax && Distance.magnitude < DistanceMin)
         {
           DistanceMin = Distance.magnitude;
           Target = i.transform;
+
         }
       }
     }
