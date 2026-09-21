@@ -6,6 +6,11 @@ public class CameraPlayer : MonoBehaviour
   public Transform targetCamera;
   public float softnesCamera;
 
+  void Start()
+  {
+    transform.position = targetCamera.position;
+  }
+
   void Update()
   {
     Vector3 pos = Vector3.SmoothDamp(transform.position, targetCamera.position, ref SpeedCamera, softnesCamera);
