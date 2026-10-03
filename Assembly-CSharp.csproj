@@ -64,7 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Interface\MenuManager.cs" />
+    <Compile Include="Assets\Interface\SoundSettings.cs" />
     <Compile Include="Assets\LivingObjects\Player\CameraPlayer.cs" />
+    <Compile Include="Assets\Interface\GameMenuManager.cs" />
     <Compile Include="Assets\LivingObjects\Player\PlayerInput.cs" />
     <Compile Include="Assets\LivingObjects\Bots\VisionCollider.cs" />
     <Compile Include="Assets\Archive\LsPlayer.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Assets\LivingObjects\Bots\AttackZone.cs" />
     <Compile Include="Assets\Objects map\Map_Zadni.cs" />
     <Compile Include="Assets\Damage\TakingDamage.cs" />
+    <Compile Include="Assets\Interface\SaveSettingManager.cs" />
     <Compile Include="Assets\Archive\Zlodey.cs" />
     <Compile Include="Assets\LivingObjects\Player\Player_I.cs" />
     <Compile Include="Assets\LivingObjects\Bots\BotChase.cs" />
