@@ -3,21 +3,20 @@ using UnityEngine;
 public class SoundSettings : MonoBehaviour
 {
   public UnityEngine.UI.Slider SliderTotalSound;
-  public AudioSource MenuTotalMusic;
-  public AudioSource GameTotalMusic;
+  public AudioSource TotalSoundMusic;
 
   void Start()
   {
+    SliderTotalSound.value = SaveSettingManager.TotalSound;
+    TotalSoundMusic.volume = SaveSettingManager.TotalSound;
+    TotalSoundMusic.Play();
   }
 
-  public void TotalMusic()
+  public void SliderSoundChangeTotal(float value)
   {
-    MenuTotalMusic.volume = SliderTotalSound.value;
-    GameTotalMusic.volume = SliderTotalSound.value;
-  }
+    SaveSettingManager.TotalSound = value;
 
-  void Update()
-  {
-    TotalMusic();
+    TotalSoundMusic.volume = SaveSettingManager.TotalSound;
+
   }
 }

@@ -5,11 +5,17 @@ public class GameMenuManager : MonoBehaviour
 {
   public GameObject DarkOverlay;
   public GameObject PauseGamePanel;
+  public GameObject SettingsMenu;
 
   public void ExitMainMenu()
   {
     SceneManager.LoadScene("MainMenu");
     Time.timeScale = 0;
+  }
+
+  public void SettingMenu()
+  {
+    SettingsMenu.SetActive(true);
   }
 
   public void ContinuePlay()
@@ -29,7 +35,7 @@ public class GameMenuManager : MonoBehaviour
 
   void Update()
   {
-    if (DarkOverlay.activeSelf == true && PauseGamePanel.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) == true)
+    if (DarkOverlay.activeSelf == true && PauseGamePanel.activeSelf == true && Input.GetKeyDown(KeyCode.Escape) == true && SettingsMenu.activeSelf == false)
     {
       ContinuePlay();
     }

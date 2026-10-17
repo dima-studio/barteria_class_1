@@ -90,7 +90,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5331290144246054017}
+        m_TargetAssemblyTypeName: SoundSettings, Assembly-CSharp
+        m_MethodName: SliderSoundChangeTotal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &5331290144246054017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,8 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundSettings
   SliderTotalSound: {fileID: 9028971309210075255}
-  MenuTotalMusic: {fileID: 0}
-  GameTotalMusic: {fileID: 0}
+  TotalSoundMusic: {fileID: 0}
 --- !u!1 &2001075440212385878
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +128,7 @@ GameObject:
   - component: {fileID: 1946094733663664021}
   - component: {fileID: 4705398837817109439}
   - component: {fileID: 1935597412201216006}
+  - component: {fileID: 3641705488102112214}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -131,7 +143,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001075440212385878}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -183,6 +195,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3641705488102112214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001075440212385878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dbe8c97178ac4cbbbb2e1924c3d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingMenuUI
+  DarkOverlay: {fileID: 0}
 --- !u!1 &4974200001926014439
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,8 +902,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 3641705488102112214}
+        m_TargetAssemblyTypeName: SettingMenuUI, Assembly-CSharp
         m_MethodName: ExitSettingMenu
         m_Mode: 1
         m_Arguments:

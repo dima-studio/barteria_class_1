@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-  public GameObject MainMenu;
   public GameObject SettingsMenu;
   public GameObject DarkOverlay;
 
@@ -19,23 +18,12 @@ public class MenuManager : MonoBehaviour
     DarkOverlay.SetActive(true);
   }
 
-  public void ExitSettingMenu()
-  {
-    SettingsMenu.SetActive(false);
-    DarkOverlay.SetActive(false);
-  }
-
   void Start()
   {
-    SettingsMenu.SetActive(false);
     DarkOverlay.SetActive(false);
   }
 
   void Update()
   {
-    if (SettingsMenu.activeSelf == true && DarkOverlay.activeSelf == true && Input.GetKeyDown(KeyCode.Escape))
-    {
-      ExitSettingMenu();
-    }
   }
 }

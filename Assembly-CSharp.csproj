@@ -77,6 +77,7 @@
     <Compile Include="Assets\Damage\PlayerDamage.cs" />
     <Compile Include="Assets\Archive\Razmnozik.cs" />
     <Compile Include="Assets\LivingObjects\Bots\Brain\BrainZlodey.cs" />
+    <Compile Include="Assets\Interface\SettingMenuUI.cs" />
     <Compile Include="Assets\LivingObjects\Bots\Bypass\ObstacleScanner.cs" />
     <Compile Include="Assets\LivingObjects\Bots\AttackZone.cs" />
     <Compile Include="Assets\Objects map\Map_Zadni.cs" />
