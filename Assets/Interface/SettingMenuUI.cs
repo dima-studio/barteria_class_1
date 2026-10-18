@@ -19,10 +19,10 @@ public class SettingMenuUI : MonoBehaviour
       DarkOverlay.SetActive(false);
     }
   }
-
   
   void Update()
   {
+
     if (gameObject.activeSelf == true && DarkOverlay.activeSelf == true && Input.GetKeyDown(KeyCode.Escape))
     {
       ExitSettingMenu();

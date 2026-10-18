@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6088077981857891608}
   - component: {fileID: 9028971309210075255}
   - component: {fileID: 5331290144246054017}
+  - component: {fileID: 5147368979585822681}
   m_Layer: 5
   m_Name: SliderTotalSound
   m_TagString: Untagged
@@ -117,6 +118,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundSettings
   SliderTotalSound: {fileID: 9028971309210075255}
   TotalSoundMusic: {fileID: 0}
+--- !u!114 &5147368979585822681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835407837719038820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70da711e4f0d39c46809eeae99630e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SliderSaveSetting
 --- !u!1 &2001075440212385878
 GameObject:
   m_ObjectHideFlags: 0

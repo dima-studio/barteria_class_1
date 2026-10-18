@@ -17,6 +17,5 @@ public class SoundSettings : MonoBehaviour
     SaveSettingManager.TotalSound = value;
 
     TotalSoundMusic.volume = SaveSettingManager.TotalSound;
-
   }
 }

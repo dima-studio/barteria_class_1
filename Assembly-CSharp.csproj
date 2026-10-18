@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AA0C2EAA-4536-FD32-2473-05AB7372E541}</ProjectGuid>
+    <ProjectGuid>{6D579007-C06D-AF40-DBA5-4558278901E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,8 +59,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
-    <Analyzer Include="D:\Изучение ПК\barteria_class_1\Library\PackageCache\com.unity.dt.app-ui@5d6dc8bfd8d9\Runtime\SourceGenerators\netstandard2.0\EnumToLowerCase.dll" />
-    <Analyzer Include="D:\Изучение ПК\barteria_class_1\Library\PackageCache\com.unity.dt.app-ui@5d6dc8bfd8d9\Runtime\MVVM\SourceGenerators\netstandard2.0\MVVMSourceGenerators.dll" />
+    <Analyzer Include="D:\Изучение ПК\bacteria_class_1\Library\PackageCache\com.unity.dt.app-ui@5d6dc8bfd8d9\Runtime\SourceGenerators\netstandard2.0\EnumToLowerCase.dll" />
+    <Analyzer Include="D:\Изучение ПК\bacteria_class_1\Library\PackageCache\com.unity.dt.app-ui@5d6dc8bfd8d9\Runtime\MVVM\SourceGenerators\netstandard2.0\MVVMSourceGenerators.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Interface\MenuManager.cs" />
@@ -69,6 +69,7 @@
     <Compile Include="Assets\Interface\GameMenuManager.cs" />
     <Compile Include="Assets\LivingObjects\Player\PlayerInput.cs" />
     <Compile Include="Assets\LivingObjects\Bots\VisionCollider.cs" />
+    <Compile Include="Assets\Interface\SliderSaveSetting.cs" />
     <Compile Include="Assets\Archive\LsPlayer.cs" />
     <Compile Include="Assets\Archive\LsArmorEntity.cs" />
     <Compile Include="Assets\LivingObjects\Bots\BotChangeDir.cs" />

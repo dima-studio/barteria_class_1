@@ -2,11 +2,13 @@ using UnityEngine;
 
 public static class SaveSettingManager
 {
-  public static float TotalSound;
-  
+  private const string TotalSound_key = "TotalSound";
+
+  public static float TotalSound = PlayerPrefs.GetFloat(TotalSound_key, 0.5f);
+
   public static void SaveTotalSound()
   {
-    PlayerPrefs.SetFloat("TotalSound", TotalSound);
+    PlayerPrefs.SetFloat(TotalSound_key, TotalSound);
     PlayerPrefs.Save();
   }
 
