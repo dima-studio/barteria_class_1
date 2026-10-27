@@ -8,8 +8,6 @@ public class SoundSettings : MonoBehaviour
   void Start()
   {
     SliderTotalSound.value = SaveSettingManager.TotalSound;
-    TotalSoundMusic.volume = SaveSettingManager.TotalSound;
-    TotalSoundMusic.Play();
   }
 
   public void SliderSoundChangeTotal(float value)

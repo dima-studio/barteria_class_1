@@ -21,9 +21,6 @@ public class MenuManager : MonoBehaviour
   void Start()
   {
     DarkOverlay.SetActive(false);
-  }
-
-  void Update()
-  {
+    SettingsMenu.SetActive(false);
   }
 }

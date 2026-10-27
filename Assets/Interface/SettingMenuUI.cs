@@ -5,11 +5,6 @@ public class SettingMenuUI : MonoBehaviour
 {
   public GameObject DarkOverlay;
 
-  void Start()
-  {
-    gameObject.SetActive(false);
-  }
-
   public void ExitSettingMenu()
   {
     gameObject.SetActive(false);

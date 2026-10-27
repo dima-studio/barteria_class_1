@@ -49,5 +49,6 @@ public class GameMenuManager : MonoBehaviour
   {
     DarkOverlay.SetActive(false);
     PauseGamePanel.SetActive(false);
+    SettingsMenu.SetActive(false);
   }
 }
