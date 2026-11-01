@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632cca2c0fb18584b88a9ac5c7e15bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  SettingsMenu: {fileID: 662919467}
+  SettingsMenu: {fileID: 662919469}
   DarkOverlay: {fileID: 1793675938}
 --- !u!114 &372745344
 MonoBehaviour:
@@ -481,16 +481,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610936048}
   m_CullTransparentMesh: 1
---- !u!1 &662919467 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2001075440212385878, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
-  m_PrefabInstance: {fileID: 2073696226333610012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &662919468 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1946094733663664021, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
   m_PrefabInstance: {fileID: 2073696226333610012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &662919469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3641705488102112214, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
+  m_PrefabInstance: {fileID: 2073696226333610012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5dbe8c97178ac4cbbbb2e1924c3d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingMenuUI
 --- !u!1 &801416693
 GameObject:
   m_ObjectHideFlags: 0

@@ -917,7 +917,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3641705488102112214}
         m_TargetAssemblyTypeName: SettingMenuUI, Assembly-CSharp
-        m_MethodName: ExitSettingMenu
+        m_MethodName: OnExit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

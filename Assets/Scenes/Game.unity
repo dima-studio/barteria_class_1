@@ -7973,7 +7973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameMenuManager
   DarkOverlay: {fileID: 787299996}
   PauseGamePanel: {fileID: 489406146}
-  SettingsMenu: {fileID: 2094845062}
+  SettingsMenu: {fileID: 2094845063}
 --- !u!1 &2045491293
 GameObject:
   m_ObjectHideFlags: 0
@@ -8398,18 +8398,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2018304405}
     m_Modifications:
-    - target: {fileID: 109204377588128241, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2094845063}
-    - target: {fileID: 109204377588128241, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitSettingMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 109204377588128241, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SettingMenuUI, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 1946094733663664021, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8576,17 +8564,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1946094733663664021, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
   m_PrefabInstance: {fileID: 2094845060}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2094845062 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2001075440212385878, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
-  m_PrefabInstance: {fileID: 2094845060}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2094845063 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3641705488102112214, guid: 34f51bcbfbb11974e8bd422d7f1e557a, type: 3}
   m_PrefabInstance: {fileID: 2094845060}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094845062}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c5dbe8c97178ac4cbbbb2e1924c3d19, type: 3}
